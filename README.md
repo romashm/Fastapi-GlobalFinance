@@ -20,3 +20,4 @@
   <img src="https://sun9-50.userapi.com/impg/RDlX_yGhA80e35-EdqlCbUNkJpWyzCIBtGNDDA/XdJW09RfkzY.jpg?size=1920x1080&quality=96&sign=8f145b5000551ac80f0df3b52aa1b572&type=album">
 </p>
 <p> Excellent, currently i decided to test it on the real server & deploy it! in case you need help with remote downloading to github page <code> https://oiplug.com/blog/git/5049/ </code> </p>
+<code> https://server-exchangerates.herokuapp.com/ </code>
