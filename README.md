@@ -1,5 +1,4 @@
 # Fastapi-exchangeRates
-# Server-exchangeRates
 <p align="center">
   <img src="https://media.giphy.com/media/d2Z12G5H3wAjPpkI/giphy.gif">
 </p>
