@@ -20,4 +20,5 @@
 </p>
 <p> Excellent, currently i decided to test it on the real server & deploy it! in case you need help with remote downloading to github page <code> https://oiplug.com/blog/git/5049/ </code> </p>
 <code> https://server-exchangerates.herokuapp.com/ </code>
-<h2>  </h2>
+<h2> 👤 Registration part explorence </h2>
+<p>  </p>
