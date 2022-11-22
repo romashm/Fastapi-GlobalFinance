@@ -20,5 +20,36 @@
 </p>
 <p> Excellent, currently i decided to test it on the real server & deploy it! in case you need help with remote downloading to github page <code> https://oiplug.com/blog/git/5049/ </code> </p>
 <code> https://server-exchangerates.herokuapp.com/ </code>
-<h2> 👤 Registration part explorence </h2>
-<p>  </p>
+<h1> FastAPI-Authentication </h1>
+Authentication in fastapi app
+<p align="center">
+  <img src="https://media.giphy.com/media/Wb6fHuJCH7zELdsqSn/giphy.gif">
+</p>
+<p> Test projct for detect how work authentification system on fastapi. Open terminal <code> sqlite3 users.db </code>, than type <code> SELECT * FROM users; </code>. Received result is your database on the server </p>
+<h2> 👤 Registration & Login </h2>
+<p> <b>What is Role based Access Control (RBAC)</b> - Most of the CRUD apps, require some level of role based access control.
+
+You may have at least two types of users.
+
+Elevated permission user (admin, root or superuser)
+Normal user aka everyone else ;)
+More likely you have more levels in between.
+
+This means only the users with specific role can access certain API endpoints or operations e.g. Allow everyone the GET operation, but only admin can DELETE. Some levels in-between can create/update etc.
+</p>
+<p> 
+  <code>What does init_auth do?</code>
+init_auth fetches metadata from PropelAuth that it will use to verify users. It does this once on startup, so that it can verify users without making any external requests.
+<p align="center">
+  <img src="https://sun9-48.userapi.com/impg/FeNv_5uofNToTrmTLzoPswXASz2cjbdR1KbETw/JhbAVhdDm8Q.jpg?size=1830x1030&quality=96&sign=01f390fbd9c5c61e09a8ad6e50459c25&type=album">
+</p>
+  <code>How does require_user work?</code>
+When your frontend makes a request to the backend, it will include a token for the user that made the request. require_user verifies this token (using the metadata it fetched in init_auth), and injects the User into the request. If invalid credentials are provided, the request is rejected.
+
+  <code>What is an org_id?</code>
+It's an identifier for an organization. PropelAuth provides B2B authentication meaning that your users can create organizations, invite their coworkers to join them, and manage roles within the organization.
+</p>
+<p align="center">
+  <img src="https://media.giphy.com/media/O8IpEOGKM40PoNtT3h/giphy.gif">
+</p>
+
