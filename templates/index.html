@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+    <title> Global </title>
+</head>
+<body>
+    <header>
+        <nav class="Platform">
+            <p class="Global Xanh"> Global Finance inc. </p>
+            <div class="manage">
+                <p class="timestamp Xanh"> {{timestamp}} MSC </p>
+                <img class="userAccountSite" src="{{ url_for('static', path='/images/account.svg') }}" />
+            </div>
+        </nav>
+        <center class="center">
+                <h1 class="h3 mb-5 fw-normal">Войдите</h1>
+                <form method="POST">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="@почта" required name="email">
+                </div>
+                <div class="form-floating">
+                  <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Пароль" required>
+                </div>
+                <div class="checkbox mb-5"></div>
+                <div class="displayFlex">
+                    <button class="w-40 btn btn-lg btn-success" type="submit" > Войти </button>
+                    </form>
+                    <form action="/registration">
+                        <button class="w-40 btn btn-lg btn-danger" type="submit"> Регистрация </button>
+                    </form>
+                </div>
+        </center>
+    </header>
+</body>
+</html>

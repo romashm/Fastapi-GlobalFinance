@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Finance</title>
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <section>
+        <nav class="Platform">
+            <p class="Global Xanh"> Global Finance inc. </p>
+            <div class="manage">
+                <p class="timestamp Xanh"> {{timestamp}} MSC </p>
+                <img class="userAccountSite" src="{{ url_for('static', path='/images/account.svg') }}" />
+            </div>
+        </nav>
+        <div class="MainTarget">
+            <div class="card text-center">
+                <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                    <a class="nav-link Xanh" aria-current="true" href="/Deal">Совершить сделку</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link active Xanh" aria-current="true" href="/report">Формировать отчет</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                    <a class="nav-link Xanh" href="/ending">Завершить рабочую сессию</a>
+                    </li>
+                </ul>
+                </div>
+                <div class="card-body">
+                <h5 class="card-title">Сформировать отчет</h5>
+                </br>
+                <form method="POST">
+                <div class="groupInputs_Datas">
+                    <div class="container text-center">
+                        <div class="row">
+                          <div class="col">
+                            <div class="input-group mb-3 coli">
+                                <span class="input-group-text" id="basic-addon1"><img class="calendarUser" src="{{ url_for('static', path='/images/calendar.svg') }}" /></span>
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{dateandtime}}" name="time">
+                        </div>
+                          </div>
+                          <div class="col">
+                            <div class="input-group mb-3 coli">
+                                <label class="input-group-text" for="inputGroupSelect01">Формат</label>
+                                <select class="form-select" id="inputGroupSelect01" name="format">
+                                  <option selected> Выбирите формат </option>
+                                  <option value="PDF"> PDF </option>
+                                  <option value="Excel"> Excel </option>
+                                </select>
+                            </div>
+                          </div>
+                          <div class="col">
+                                <button type="submit" class="btn btn-warning btn-lg a"> Формировать отчет </button>
+                            </div>
+                            </form>
+                          </div>
+                        </div>
+        </div>
+    </section>
+    <style>
+
+        .coli {
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .groupInputs_DatasI {
+            width: 99.5%;
+            height: auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 1%;
+
+        }
+
+        .a {
+            color: #fff;
+        }
+
+        body {
+            background: url('../static/img/BG.svg') no-repeat ;
+            background-size: cover;
+            height: 100%;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap');
+        .Nunito {font-family: 'Xanh Mono', monospace;}
+
+
+        a::hover {
+
+            text-decoration: none;
+        }
+
+        /* Imports */
+
+@import url('../assets/fonts/JosefinSans font/JosefinSans-Italic-VariableFont_wght.ttf');
+.JosefinSans {font-family: 'Josefin Sans', sans-serif;}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+.Nunito {font-family: 'Nunito', sans-serif;}
+
+/* Imports */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    width: 100%;
+    height: auto;
+    padding-top: 3%;
+}
+
+.abc {
+    position: absolute;
+}
+
+.userAccountSite {
+    display: flex;
+    padding-left: 10%;
+}
+
+.GlobalFinance {
+    font-size: 52px;
+    font-weight: bold;
+    z-index: 999;
+    margin-bottom: 0;
+    color: #fff;
+}
+
+.lineOfficial {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.connBlock {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 999;
+    padding-left: 10%;
+}
+
+.timeMSC {
+    font-size: 38px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    align-items: center;
+    margin-bottom: 0;
+}
+.MainTarget {
+    padding-top: 3%;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav-link {
+    font-weight: bold;
+    color: #000
+}
+
+.groupInputs_Datas {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1%;
+}
+
+
+.BlockII {
+    width: 45%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.BlockV {
+    width: 67%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.BlockIV {
+    width: 15%;
+    height: auto;
+
+}
+
+.BlockVI {
+    width: 15%;
+    height: auto;
+}
+
+
+.BlockIII {
+    width: 20%;
+    height: auto;
+}
+
+.calendarUser {
+    width: 18px;
+    height: auto;
+}
+
+.tableBackground {
+    max-height: 100%;
+    border: 1px solid black;
+}
+
+.logField {
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15%;
+}
+
+.flexPlace {
+    padding: 3%;
+}
+
+.logBTN {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 3%;
+}
+
+.wNEW {
+    width: 40%;
+}
+
+.wNEWI {
+    width: 20%;
+}
+
+.userProfile {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+    height: 10%;
+}
+
+.Name-Surname {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inputW {
+    width: 40%;
+    padding: 1.5%;
+
+}
+
+.inputH {
+    margin-right: 1%;
+
+}
+
+.Except {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1.5%;
+    padding-top: 1.5%;
+}
+
+a {
+    color: #fff;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+    </style>
+</body>
+</html>

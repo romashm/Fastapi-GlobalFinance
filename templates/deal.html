@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Finance</title>
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <section>
+        {# Navigation bar curved svg #}
+        <nav class="Platform">
+            <p class="Global Xanh"> Global Finance inc. </p>
+            <div class="manage">
+                <p class="timestamp Xanh"> {{timestamp}} MSC </p>
+                <img class="userAccountSite" src="{{ url_for('static', path='/images/account.svg') }}" />
+            </div>
+        </nav>
+        <div class="MainTarget Xanh">
+            <div class="card text-center">
+                <div class="card-header Xanh">
+                <ul class="nav nav-tabs card-header-tabs .a">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="true" href="/Deal">Совершить сделку</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="/report">Формировать отчет</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="/ending">Завершить рабочую сессию</a>
+                    </li>
+                </ul>
+                </div>
+                <div class="card-body">
+                <p class="card-title timestamp">Совершить сделку</p>
+                </br>
+                <form method="POST">
+                <div class="moveAll abc">
+                
+                <div class="abc moveFirst">
+                    <div class="BlockIV">
+                        <label class="select" for="slct">
+                            <select id="slct" required="required" name="deal">
+                              <option value="" disabled="disabled" selected="selected">Выбрать сделку</option>
+                              <option value="Покупка">Покупка</option>
+                              <option value="Продажа">Продажа</option>
+                            </select>
+                          </label>
+                    </div>
+                </div>
+                <div class="abc moveSecond">
+                    <select class="form-select" id="inputGroupSelect01" name="currn" required>
+                        <option selected> Выберите валюту </option>
+                        <option value="Доллар"> $ </option>
+                        <option value="Рубль"> ₽ </option>
+                        <option value="Евро"> € </option>
+                        <option value="Юань"> ¥ </option>
+                        <option value="Тенге"> ₸ </option>
+                    </select>
+                </div>
+                <div class="abc moveThird">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="currency" required placeholder="Объём" onkeyup="
+                        valueDefind1(this.value)
+                        ">
+                        <div class="valueOP">
+                        <input type="text" class="form-control" required placeholder=".00" name="currencyVAL" id="currencyVALUM" placeholder=".00" onkeyup="
+                        valueDefind(this.value)
+                        "  value="00">
+                        </div>
+                    </div>
+                </div>
+                <div class="abc moveFourth">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control currency" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="exchange" required placeholder="Курс" id="selectedValue2">
+                        <div class="valueOP">
+                            <input type="text" class="form-control" id="selectedValue1" required placeholder=".00" onkeyup="
+                            Valuedefine(this.value)
+                            " value="00" name="valval">
+                        </div>
+                    </div>
+                </div>
+                <div class="abc moveFifth">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control currency" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="result" id="answer"  required placeholder="Стоимость в Тенге">
+                    </div>
+                </div>
+                <div class="abc moveSex">
+                    <div class="input-group">
+                        <textarea class="form-control" aria-label="With textarea" name="comment" placeholder="Комментарий"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div id="myModal" class="modal">
+
+                <!-- POPUP -->
+                <div class="modal-content">
+                <p class="text1 Xanh"> Вы уверены в сделке? </p>
+                <div class="blockContent">
+                    <button type="submit" class="btn btn-success btn-lg" > Да, я подтверждаю </button>
+                    <button class="btn btn-danger btn-lg close2" > Отменить </button>
+                </div>
+                </div>
+            
+            </div>
+        </form>
+
+            
+        <button class="btn btn-warning btn-lg a abc moveButton" id="myBtn">Совершить сделку</button>
+
+            <p class="card-title timestamp his">История операций</p>
+        </br>
+        <div class="groupInputs_DatasII">
+            <div style="overflow-y:scroll; height: 300px; width: 60%;" class="scroll abc">
+            <div class="container text-center">
+                <div class="row">
+                  <div class="col tableBackground">
+                    № 
+                  </div>
+                  <div class="col-2 tableBackground">
+                    Дата
+                  </div>
+                  <div class="col-1 tableBackground">
+                    Валюта
+                  </div>
+                  <div class="col-2 tableBackground">
+                    Действие
+                  </div>
+                  <div class="col-1 tableBackground">
+                    Объем
+                  </div>
+                  <div class="col-1 tableBackground">
+                    Курс
+                  </div>
+                  <div class="col-2 tableBackground">
+                    Стоимость
+                  </div>
+                  <div class="col-2 tableBackground">
+                    Комментарий
+                  </div>
+                </div>
+              </div>
+              {% for deals in range(deal) %}
+                    <div class="container text-center">
+                        <div class="row row-cols-7">
+                          <div class="col tableBackground">
+                            {{n[deals][0]}}
+                          </div>
+                          <div class="col-2 tableBackground">
+                            {{n[deals][4]}}
+                          </div>
+                          <div class="col-1 tableBackground">
+                            {{n[deals][1]}}
+                          </div>
+                          <div class="col-2 tableBackground">
+                            {{n[deals][3]}}
+                          </div>
+                          <div class="col-1 tableBackground">
+                            {{n[deals][2]}}
+                          </div>
+                          
+                          <div class="col-1 tableBackground">
+                            {{n[deals][5]}}
+                          </div>
+                          <div class="col-2 tableBackground">
+                            {{n[deals][6]}}
+                          </div>
+                          <div class="col-2 tableBackground">
+                            {{n[deals][7]}}
+                          </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                {{rev}}
+    </section>
+    <script>
+
+            function valueDefind(value) {
+                return value
+            };
+
+            function valueDefind1(value) {
+                return value
+            };
+
+
+
+            function Valuedefine(value) {
+                let elem = document.getElementById("selectedValue2").value+'.'+value
+                let elem2 = document.getElementById("selectedValue").value+'.'+value
+
+
+
+                document.getElementById("answer").value = Math.round(parseFloat(elem)*parseFloat(elem2)* 100) / 100
+            }
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close2")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
+    </script>
+    <style>
+
+        .scroll {
+            margin: 0;
+            padding: 0;
+            margin: 0% 20%;
+        }
+
+        /* The Modal (background) */
+        .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 20%; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .moveButton {
+            margin: 7% 32.5%;
+        }
+
+        .valueOP {
+            width: 60px;
+        }
+
+        .moveAll {
+            margin: 1% 6%;
+            width: 95%;
+        }
+
+        .his {
+            padding-top: 10%;
+        }
+
+        .card-body {
+            height: 700px;
+        }
+
+        .blockContent {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10%;
+            align-items: center;
+        }
+
+        /* Modal Content */
+        .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 25%;
+        height: 200px;
+        }
+
+        .col {
+            margin: 0;
+
+        }
+
+        /* The Close Button */
+        .close2 {
+        float: right;
+        font-weight: bold;
+        }
+
+        .close2:hover,
+        .close2:focus {
+
+        text-decoration: none;
+        cursor: pointer;
+        }
+
+        .text {
+            font-size: 28px;
+            margin-bottom: 0;
+            padding-left: 20%;
+        }
+
+        .text1 {
+            font-size: 28px;
+            margin-bottom: 0;
+            align-text: center;
+        }
+
+        .row {
+            width: 100%;
+
+        }
+
+        .moveFirst {
+            margin: 1% 3%;
+        }
+
+        .moveSecond {
+            margin: 1% 15%;
+        }
+
+        .moveThird {
+            margin: 0.5% 27%;
+        }
+
+        .moveFourth {
+            margin: 0.5% 45%;
+            width: 12%;
+        }
+
+        .moveFifth {
+            margin: 0.5% 60%;
+            width: 12%;
+        }
+
+        .moveSex {
+            margin: 0.5% 76%;
+            width: 20%;
+        }
+
+        .select{
+        position: relative
+        min-width: 200px}
+        
+        select {
+            -webkit-appearance: none
+            padding: 7px 40px 7px 12px
+            width: 100%
+            border: 1px solid #E8EAED
+            border-radius: 5px
+            background: white
+            box-shadow: 0 1px 3px -2px #9098A9
+            cursor: pointer
+            font-family: inherit
+            font-size: 16px
+            transition: all 150ms ease
+            &:required:invalid
+            color: #5A667F
+        }
+            
+
+        .sprites{
+        position: absolute
+        width: 0
+        height: 0
+        pointer-events: none
+        user-select: none}
+
+        #box {
+            width: 30%;
+            height: 20%;
+            text-align: center;
+            padding: 15px;
+            border: 3px solid #000;
+            border-radius: 10px;
+            color: #000;
+            background-color: #fff;
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 24px;
+            left: 0;
+            margin: auto;   
+            
+            text-align: center;
+            
+          }
+          #box:target {display: block;}
+          .close {
+            position: absolute;
+            color: #0000cc;
+            padding: 0;
+            margin: 5% -8%;
+            text-decoration: none;
+            cursor:pointer;
+          }
+
+        .a {
+            color: white;
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        body {
+            background: url('../static/img/BG.svg') no-repeat ;
+            background-size: cover;
+            height: 100%;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap');
+        .Nunito {font-family: 'Xanh Mono', monospace;}
+
+        .a::hover {
+
+            text-decoration: none;
+        }
+
+        /* Imports */
+
+        @import url('../assets/fonts/JosefinSans font/JosefinSans-Italic-VariableFont_wght.ttf');
+        .JosefinSans {font-family: 'Josefin Sans', sans-serif;}
+
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+        .Nunito {font-family: 'Nunito', sans-serif;}
+
+        /* Imports */
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            width: 100%;
+            height: auto;
+            padding-top: 3%;
+        }
+
+        .abc {
+            position: absolute;
+        }
+
+        .userAccountSite {
+            display: flex;
+            padding-left: 10%;
+        }
+
+        .GlobalFinance {
+            font-size: 52px;
+            font-weight: bold;
+            z-index: 999;
+            margin-bottom: 0;
+            color: #fff;
+        }
+
+        .lineOfficial {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .connBlock {
+            width: 25%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 999;
+            padding-left: 10%;
+        }
+
+        .timeMSC {
+            font-size: 38px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            margin-bottom: 0;
+        }
+
+        .MainTarget {
+            padding-top: 3%;
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-link {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .groupInputs_Datas {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 1%;
+        }
+
+        .groupInputs_Datas2 {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+
+        .BlockII {
+            width: 45%;
+            height: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .BlockV {
+            width: 67%;
+            height: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .BlockIV {
+            width: 40%;
+            height: auto;
+
+        }
+
+        .BlockVI {
+            width: 15%;
+            height: auto;
+        }
+
+
+        .BlockIII {
+            width: 20%;
+            height: auto;
+        }
+
+        .BlockIIIA {
+            width: 50%;
+            height: auto;
+        }
+
+
+        .calendarUser {
+            width: 18px;
+            height: auto;
+        }
+
+        .tableBackground {
+            max-height: 100%;
+            border: 1px solid black;
+        }
+
+        .logField {
+            width: 30%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 15%;
+        }
+
+        .flexPlace {
+            padding: 3%;
+        }
+
+        .logBTN {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding-top: 3%;
+        }
+
+        .wNEW {
+            width: 40%;
+        }
+
+        .wNEWI {
+            width: 20%;
+        }
+
+        .userProfile {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 10%;
+            height: 10%;
+        }
+
+        .Name-Surname {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .inputW {
+            width: 40%;
+            padding: 1.5%;
+
+        }
+
+        .inputH {
+            margin-right: 1%;
+
+        }
+
+        .Except {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 1.5%;
+            padding-top: 1.5%;
+        }
+
+        a {
+            color: #fff;
+            list-style: none;
+            text-decoration: none;
+        }
+
+
+    </style>
+</body>
+</html>

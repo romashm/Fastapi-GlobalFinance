@@ -1,0 +1,208 @@
+/* Imports */
+
+@import url('./fonts/Xanh font/XanhMono-Regular.ttf');
+.Xanh {font-family: 'Xanh Mono', monospace;}
+
+@import url('./fonts/JosefinSans font/JosefinSans-Italic-VariableFont_wght.ttf');
+.JosefinSans {font-family: 'Josefin Sans', sans-serif;}
+
+@import url('./fonts/Nunito font/Nunito-VariableFont_wght.ttf');
+.Nunito {font-family: 'Nunito', sans-serif;}
+
+/* Imports */
+/* 📂 File: index.html */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.Platform {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding-top: 2%;
+    justify-content: space-around;
+}
+
+.Global {
+    font-size: 52px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.manage {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 10%;
+}
+
+.timestamp {
+    font-size: 38px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+
+.userAccountSite {
+    display: flex;
+    padding-left: 10%;
+}
+
+.center {
+    padding-top: 10%;
+    width: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.displayFlex {
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+}
+
+.a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* 📂 File: index.html */
+/* 📂 File: registration.html */
+
+.regCenter {
+    padding-top: 10%;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-macker {
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+}
+
+.content-end {
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+}
+
+.select-box {
+    position: relative;
+    display: block;
+    width: 40%;
+    font-size: 18px;
+    color: #60666d;
+    margin-top: 2%;
+  }
+  
+  .select-box__current {
+    position: relative;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    outline: none;
+  }
+  .select-box__current:focus + .select-box__list {
+    opacity: 1;
+    -webkit-animation-name: none;
+            animation-name: none;
+  }
+  .select-box__current:focus + .select-box__list .select-box__option {
+    cursor: pointer;
+  }
+  .select-box__current:focus .select-box__icon {
+    -webkit-transform: translateY(-50%) rotate(180deg);
+            transform: translateY(-50%) rotate(180deg);
+  }
+  .select-box__icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 20px;
+    opacity: 0.3;
+    transition: 0.2s ease;
+  }
+  .select-box__value {
+    display: flex;
+  }
+  .select-box__input {
+    display: none;
+  }
+  .select-box__input:checked + .select-box__input-text {
+    display: block;
+  }
+  .select-box__input-text {
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    background-color: #fff;
+  }
+  .select-box__list {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    -webkit-animation-name: HideList;
+            animation-name: HideList;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-timing-function: step-start;
+            animation-timing-function: step-start;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+  }
+  .select-box__option {
+    display: block;
+    padding: 15px;
+    background-color: #fff;
+  }
+  .select-box__option:hover, .select-box__option:focus {
+    color: #546c84;
+    background-color: #fbfbfb;
+  }
+  
+  @-webkit-keyframes HideList {
+    from {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+    }
+    to {
+      -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+    }
+  }
+  
+  @keyframes HideList {
+    from {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+    }
+    to {
+      -webkit-transform: scaleY(0);
+              transform: scaleY(0);
+    }
+  }
+
+/* 📂 File: registration.html */
