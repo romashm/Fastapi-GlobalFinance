@@ -23,7 +23,7 @@
                 <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                    <a class="nav-link Xanh" aria-current="true" href="#">Совершить сделку</a>
+                    <a class="nav-link Xanh" aria-current="true" href="/Deal">Совершить сделку</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link Xanh" href="/report">Формировать отчет</a>
@@ -35,24 +35,94 @@
                 </div>
                 <div class="card-body">
                 <h5 class="card-title">Вы уверены ?</h5>
-                <div class="BlockIII">
-                    <button type="submit" class="btn btn-warning btn-lg"> <a href="#box" class="a"> Завершить рабочий день </a></button>
-                </div>
+                <button class="btn btn-warning btn-lg a abc moveButton" id="myBtn">Закончить рабочий день</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div id="box" class="Xanh">
-        Вы уверены что хотите покинуть эту стадию ?</br>  <br>
-        <a href="" class="close"> Закрыть </a>
-        <a href="/" class="close1"> Да </a>
+    <div id="myModal" class="modal">
+
+        <!-- POPUP -->
+        <div class="modal-content">
+        <p class="text1 Xanh"> Вы уверены в сделке? </p>
+        <div class="blockContent">
+            <button type="submit" class="btn btn-success btn-lg" > Да, я подтверждаю </button>
+            <button class="btn btn-danger btn-lg close2" > Отменить </button>
+        </div>
+        </div>
+    
     </div>
 
 
     </section>
+    <script>
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close2")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+    </script>
     <style>
+
+        .moveButton {
+            margin: 3% 32.5%;
+        }
+        .blockContent {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10%;
+            align-items: center;
+        }
+
+        .text1 {
+            font-size: 28px;
+            margin-bottom: 0;
+            align-text: center;
+        }
+
+        .card-body {
+            height: 200px;
+        }
+        
+        /* The Modal (background) */
+        .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 20%; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
         #box {
             width: 30%;
             height: 20%;
@@ -74,6 +144,32 @@
             text-align: center;
             
           }
+          .a {
+            color: white;
+        }
+
+          /* Modal Content */
+          .modal-content {
+          background-color: #fefefe;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 25%;
+          height: 200px;
+          }
+          /* The Close Button */
+          .close2 {
+          float: right;
+          font-weight: bold;
+          }
+  
+          .close2:hover,
+          .close2:focus {
+  
+          text-decoration: none;
+          cursor: pointer;
+          }
+  
           #box:target {display: block;}
           .close {
             position: absolute;

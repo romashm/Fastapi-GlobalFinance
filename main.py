@@ -10,7 +10,6 @@ from datetime import datetime
 import pandas as pd
 import os
 import itertools
-import pdfkit
 
 
 from App.database import create_db_and_tables, shutdown, get_db, get_db2
@@ -86,7 +85,8 @@ def registrationUser(
 @app.post('/')
 def main(
     db: Session = Depends(get_db),
-    form_data: OAuth2PasswordRequestForm = Depends()
+    form_data: OAuth2PasswordRequestForm = Depends(),
+    
 ):
     db_user = get_users_by_mail(db=db, email=form_data.username)
     if not db_user:
@@ -122,11 +122,11 @@ def deal(
     request: Request,
     db: Session = Depends(get_db2),
     currn: str = Form(),
-    currency: float = Form(),
-    currencyVAL: int = Form(),
-    valval: int = Form(),
+    currency: str = Form(),
+    currencyVAL: str = Form(),
+    valval: str = Form(),
     deal: str = Form(),
-    exchange: float = Form(),
+    exchange: str = Form(),
     result: float = Form(),
     comment: Optional[str] = Form('')
     
@@ -137,10 +137,10 @@ def deal(
     
     db_deal = Deal(
         currn = currn,
-        currency = str(currency+currencyVAL),
+        currency = str(currency+'.'+currencyVAL),
         deal = deal,
         calendar = datetime.now().strftime("%Y/%m/%d"),
-        exchange = str(exchange+valval),
+        exchange = str(exchange+'.'+valval),
         result = result,
 
         comment = comment,
@@ -149,14 +149,8 @@ def deal(
     db.add(db_deal)
     db.commit()
     
-    context = {
-        'request':request,
-        'timestamp':datetime.now().strftime("%H:%M"),
-        'dateandtime': datetime.now().strftime("%Y/%m/%d"),
-        'deal': len(get_datas(db=db)),
-        'n' : getPost()
-    }
-    return templates.TemplateResponse('deal.html', context)  
+    context = {'request':request, 'timestamp':datetime.now().strftime("%H:%M"),'dateandtime': datetime.now().strftime("%Y/%m/%d"), 'deal': len(get_datas(db=db)), 'i': [i for i in itertools.chain(*getPost())], 'n' : getPost()[::-1]}
+    return templates.TemplateResponse('deal.html', context) 
 
 @app.get('/report')
 def report(
@@ -195,3 +189,9 @@ def ending(
 ):
     context = {'request':request, 'timestamp':datetime.now().strftime("%H:%M"),'dateandtime': datetime.now().strftime("%Y/%m/%d")}
     return templates.TemplateResponse('end_session.html', context)
+
+@app.post('/ending')
+def ending(
+    
+):
+    pass
