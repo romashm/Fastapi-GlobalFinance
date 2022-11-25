@@ -52,4 +52,7 @@ It's an identifier for an organization. PropelAuth provides B2B authentication m
 <p align="center">
   <img src="https://media.giphy.com/media/O8IpEOGKM40PoNtT3h/giphy.gif">
 </p>
-
+<p> Form how the registration work inside this project </p>
+<p align="center">
+  <img src="https://sun9-47.userapi.com/impg/5vqgjZDv77dKCsDB7U_aE39Gzk8i2m7wv-l3CA/fvw-DhPFfdo.jpg?size=1583x318&quality=96&sign=d297fc8b539e2fb91e34a8cc253bf973&type=album">
+</p>
