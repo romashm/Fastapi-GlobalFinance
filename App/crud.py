@@ -28,3 +28,10 @@ def getPost():
     with conn:
         cur.execute("SELECT * FROM Deal;")
         return cur.fetchall()
+    
+def clearData():
+    conn = lite.connect('SQL/Data.db')
+    cur = conn.cursor()
+    with conn:
+        cur.execute("DELETE FROM Deal;")
+        return cur.fetchall()

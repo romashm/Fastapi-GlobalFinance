@@ -33,3 +33,5 @@ class Deal(Base_data):
     exchange = Column(Integer)
     result = Column(Integer)
     comment = Column(String)
+    
+    user = Column(String)
