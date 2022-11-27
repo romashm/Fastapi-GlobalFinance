@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 import os
 
 engine = create_engine(
-    "sqlite:///SQL/Usersy.db", 
+    "sqlite:///SQL/Users.db", 
     connect_args={"check_same_thread": False}
 )
 
