@@ -1,4 +1,4 @@
-#!C:\Users\roman\OneDrive\Рабочий стол\Application\main\Scripts\python.exe
+#!C:\Users\roman\OneDrive\Рабочий стол\Global Finance inc\main\Scripts\python.exe
 
 ##############################################################################
 #

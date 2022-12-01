@@ -29,11 +29,11 @@
                 <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="/Home">Совершить сделку</a>
+                    <a class="nav-link active" aria-current="true" href="/{{user}}/Home">Совершить сделку</a>
                     </li>
 
                     <li class="nav-item">
-                    <a class="nav-link" aria-current="true" href="/Default">Формировать отчет</a>
+                    <a class="nav-link" aria-current="true" href="/{{user}}/Default">Формировать отчет</a>
                     </li>
                     
                 </ul>
@@ -53,16 +53,16 @@
                           <div class="center3">
                             <select id="sources" class="custom-select sources bold" placeholder="Выбрать сделку" name="currn" required>
                               <option selected> Выберите валюту </option>
-                              <option value="Доллар"> $ </option>
-                              <option value="Рубль"> ₽ </option>
-                              <option value="Евро"> € </option>
-                              <option value="Юань"> ¥ </option>
-                              <option value="Тенге"> ₸ </option>
+                              <option value="$"> $ </option>
+                              <option value="₽"> ₽ </option>
+                              <option value="€"> € </option>
+                              <option value="¥"> ¥ </option>
+                              <option value="₸"> ₸ </option>
                             </select>
                           </div>
 
                           <div class="abc moveThird">
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <input type="text" class="form-control bold" aria-label="Amount (to the nearest dollar)" name="currency" required placeholder="Объём" id="current">
                                 <div class="valueOP">
                                 <input type="text" class="form-control bold" required placeholder=".00" name="currencyVAL" id="currencyVALUM" placeholder=".00"  value="00">
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="abc moveFourth">
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <input type="text" class="form-control currency bold" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="exchange" required placeholder="Курс" id="selectedValue2">
                                 <div class="valueOP">
                                     <input type="text" class="form-control bold" id="selectedValue1" required placeholder=".00" value="00" name="valval">
@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="abc moveFifth">
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <input type="text" class="form-control currency bold" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="result" id="answer"  required placeholder="Стоимость в Тенге">
                             </div>
                         </div>
@@ -120,16 +120,16 @@
                   <div class="col-2 tableBackground">
                     Дата
                   </div>
-                  <div class="col-1 tableBackground">
+                  <div class="col tableBackground">
                     Валюта
                   </div>
-                  <div class="col-2 tableBackground">
+                  <div class="col tableBackground">
                     Действие
                   </div>
-                  <div class="col-1 tableBackground">
+                  <div class="col-2 tableBackground">
                     Объем
                   </div>
-                  <div class="col-1 tableBackground">
+                  <div class="col tableBackground">
                     Курс
                   </div>
                   <div class="col-2 tableBackground">
@@ -149,17 +149,17 @@
                           <div class="col-2 tableBackground">
                             {{n[deals][4]}}
                           </div>
-                          <div class="col-1 tableBackground">
+                          <div class="col tableBackground">
                             {{n[deals][1]}}
                           </div>
-                          <div class="col-2 tableBackground">
+                          <div class="col tableBackground">
                             {{n[deals][3]}}
                           </div>
-                          <div class="col-1 tableBackground">
+                          <div class="col-2 tableBackground">
                             {{n[deals][2]}}
                           </div>
                           
-                          <div class="col-1 tableBackground">
+                          <div class="col tableBackground">
                             {{n[deals][5]}}
                           </div>
                           <div class="col-2 tableBackground">
@@ -359,6 +359,8 @@
             position: absolute;
             display: inline-block;
             margin: 4% -40%;
+            width: 100px;
+            font-size: 12px;
             transform: translate(-50%, -50%);
           }
           
