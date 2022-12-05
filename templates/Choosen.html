@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Finance</title>
+    <link href="{{ url_for('static', path='/css/main.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <nav class="Platform">
+            <div class="Border">
+            <p class="GlobalFinance Montserrat"> Global Finance inc. </p>
+            </div>
+            <div class="manage">
+            <div class="Border">
+                <p class="LocalTime Montserrat"> {{timestamp}} MSC </p></div>
+                <img class="userAccountSite" src="{{ url_for('static', path='/images/account_icon.svg') }}" />
+                <form method="POST" action="/{{user}}/DisactivateDirector">
+                <button class="turnoff" ></button>
+                </form>
+            </div>
+        </nav>
+        <div class="MainTarget Poiret">
+            <div class="card text-center">
+                <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="true" href="/{{user}}/Director">Совершить сделку</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="true" href="/{{user}}/Choosen">Формировать отчет</a>
+                    </li>
+
+                    
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="true" href="/{{user}}/Analise"> Отчет и статистика </a>
+                    </li>
+                    
+                </ul>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="obj-center">
+                            <div class="item-2">
+                                <select id="sources" class="custom-select sources bold" name="format" required>
+                                    <option selected> Выберите формат </option>
+                                    <option value="Excel"> Excel </option>
+                                    <option value="Online"> Онлайн формат </option>
+                                </select>
+                            </div>
+
+                            <div class="item-2">
+                                <div class="input-group">
+                                    <input type="date" class="form-control currency bold" name="time" required>
+                                </div>
+                            </div>
+
+                            <div class="item-2"></div>
+                            <div class="item-2"></div>
+
+
+
+                            <div class="item-2">
+                            <button class="btn btn-warning btn-lg bold" id="myBtn">Совершить сделку</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

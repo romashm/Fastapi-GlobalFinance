@@ -29,8 +29,3 @@ def get_database_ofXlsx():
         yield db
     finally:
         db.close()
-        
-admins = create_engine(
-    f'sqlite:///sql/Admins.db', 
-    connect_args={"check_same_thread": False}
-)

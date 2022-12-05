@@ -4,8 +4,8 @@ from email.message import EmailMessage
 
 from datetime import datetime
 
-email = 'romashmlc@gmail.com'
-password = 'xpkcbnpnkzbrvtmv'
+email = 'globalise.finance.inc@gmail.com'
+password = 'qcjllhexbpjkixfl'
 
 
 def send_mail(to, token, username, email=email, password=password):
@@ -30,7 +30,7 @@ def send_mail(to, token, username, email=email, password=password):
                 К вам на сервер хочет попасть {username}
             </p>
             <p class="Enterence Montserrat">
-                Его email - {email}, если вам человек не знаком проигнорируйте сообщение. В ином случае <a href="http://localhost:8000/verify/{token}">
+             если вам человек не знаком проигнорируйте сообщение. В ином случае <a href="http://localhost:8000/verify/{token}">
                     нажмите
                 </a>
             </p>

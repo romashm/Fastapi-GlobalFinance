@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Finance</title>
+    <link href="{{ url_for('static', path='/css/main.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <nav class="Platform">
+            <div class="Border">
+            <p class="GlobalFinance Montserrat"> Global Finance inc. </p>
+            </div>
+            <div class="manage">
+            <div class="Border">
+                <p class="LocalTime Montserrat"> {{timestamp}} MSC </p></div>
+                <img class="userAccountSite" src="{{ url_for('static', path='/images/account_icon.svg') }}" />
+                <form method="POST" action="/{{user}}/DisactivateDirector">
+                <button class="turnoff" ></button>
+                </form>
+            </div>
+        </nav>
+        <div class="MainTarget Poiret">
+            <div class="card text-center">
+                <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="true" href="/{{user}}/Director">Совершить сделку</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="true" href="/{{user}}/Choosen">Формировать отчет</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" aria-current="true" href="/{{user}}/Analise"> Отчет и статистика </a>
+                    </li>
+                    
+                </ul>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+
+                    <div class="obj-center">
+                        <div class="item-1">
+                            <select id="sources" class="custom-select sources bold" name="deal" required>
+                                <option selected> Выбрать сделку </option>
+                                <option value="Продажа"> Продажа </option>
+                                <option value="Покупка"> Покупка </option>
+                            </select>
+                        </div>
+
+                        <div class="item-1">
+                            <select id="sources" class="custom-select sources bold" name="currn" required>
+                                <option selected> Выберите валюту </option>
+                                <option value="$"> $ </option>
+                                <option value="₽"> ₽ </option>
+                                <option value="€"> € </option>
+                                <option value="£"> £ </option>
+                                <option value="¥"> ¥ </option>
+                            </select>
+                        </div>
+
+                        <div class="item-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control bold" aria-label="Amount (to the nearest dollar)" name="currency" required placeholder="Объём" id="current">
+                                <div class="lower">
+                                <input type="text" class="form-control bold" required placeholder=".00" name="currencyVAL" id="currencyVALUM" placeholder=".00"  value="00">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item-1">
+                            <div class="input-group">
+                                <input type="text" class="form-control currency bold" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="exchange" required placeholder="Курс" id="selectedValue2">
+                                <div class="lower">
+                                    <input type="text" class="form-control bold" id="selectedValue1" required placeholder=".00" value="00" name="valval">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control currency bold" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="result" id="answer"  required placeholder="Стоимость в Тенге">
+                            </div>
+                        </div>
+
+                        <div class="item-1">
+                            <div class="input-group">
+                                <textarea class="form-control bold" aria-label="With textarea" name="comment" placeholder="Комментарий"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="myModal" class="modal">
+
+                        <!-- POPUP -->
+                        <div class="modal-content">
+                        <p class="text1 bold"> Вы подтверждаете действие ? </p>
+                        <div class="Redirection-Home">
+                        <div class="Redirect">
+                                <button type="submit" class="btn btn-success Montserrat"> Да, я подтверждаю </button>
+                            </form>
+                            <button type="submit" class="btn btn-danger Montserrat close2"> Отменить </button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="obj-center-end">
+                        <button class="btn btn-warning btn-lg bold" id="myBtn">Совершить сделку</button>
+                    </div>
+
+                    </br>
+                    <p class="card-title LocalTime bold">История операций</p>
+
+                    <div class="obj-table bold">
+                        <div style="overflow-y:scroll; height: 250px; width: 100%; align-items: baseline; display: flex; justify-content: center;">
+                        <table style="width:90%" class="table">
+                            <tr class="tr">
+                              <td class="td">№</td>
+                              <td class="td">Дата</td>
+                              <td class="td">Валюта</td>
+                              <td class="td">Действие</td>
+                              <td class="td">Объем</td>
+                              <td class="td">Курс</td>
+                              <td class="td">Стоимость</td>
+                              <td class="td">Сотрудник</td>
+                              <td class="td">Комментарий</td>
+                            </tr>
+                            {% for deals in range(deal) %}
+                            <tr class="tr">
+                                <td class="td">{{n[deals][0]}}</td>
+                                <td class="td">{{n[deals][4]}}</td>
+                                <td class="td">{{n[deals][1]}}</td>
+                                <td class="td">{{n[deals][3]}}</td>
+                                <td class="td">{{n[deals][2]}}</td>
+                                <td class="td">{{n[deals][5]}}</td>
+                                <td class="td">{{n[deals][6]}}</td>
+                                <td class="td">{{n[deals][8]}}</td>
+                                <td class="td">{{n[deals][7]}}</td>
+                            </tr>
+                            {% endfor %}
+                          </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close2")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
+        // Model which provide define intel for result value
+        document.getElementById('current').oninput = function() {
+            let a = document.getElementById('current').value+'.'+document.getElementById('currencyVALUM').value;
+            let b = document.getElementById('selectedValue2').value+'.'+document.getElementById('selectedValue1').value
+            document.getElementById('answer').value =Math.round(parseFloat(a*b)* 100) / 100
+        }
+
+        document.getElementById('currencyVALUM').oninput = function() {
+            let a = document.getElementById('current').value+'.'+document.getElementById('currencyVALUM').value;
+            let b = document.getElementById('selectedValue2').value+'.'+document.getElementById('selectedValue1').value
+            document.getElementById('answer').value =Math.round(parseFloat(a*b)* 100) / 100
+        }
+
+        document.getElementById('selectedValue2').oninput = function() {
+            let a = document.getElementById('current').value+'.'+document.getElementById('currencyVALUM').value;
+            let b = document.getElementById('selectedValue2').value+'.'+document.getElementById('selectedValue1').value
+            document.getElementById('answer').value =Math.round(parseFloat(a*b)* 100) / 100
+        }
+
+        document.getElementById('selectedValue1').oninput = function() {
+            let a = document.getElementById('current').value+'.'+document.getElementById('currencyVALUM').value;
+            let b = document.getElementById('selectedValue2').value+'.'+document.getElementById('selectedValue1').value
+            document.getElementById('answer').value =Math.round(parseFloat(a*b)* 100) / 100
+        }
+
+        $(".custom-select").each(function() {
+            var classes = $(this).attr("class"),
+                id      = $(this).attr("id"),
+                name    = $(this).attr("name");
+            var template =  '<div class="' + classes + '">';
+                template += '<span class="custom-select-trigger">' + $(this).attr("placeholder") + '</span>';
+                template += '<div class="custom-options">';
+                $(this).find("option").each(function() {
+                  template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
+                });
+            template += '</div></div>';
+            
+            $(this).wrap('<div class="custom-select-wrapper"></div>');
+            $(this).hide();
+            $(this).after(template);
+          });
+          $(".custom-option:first-of-type").hover(function() {
+            $(this).parents(".custom-options").addClass("option-hover");
+          }, function() {
+            $(this).parents(".custom-options").removeClass("option-hover");
+          });
+          $(".custom-select-trigger").on("click", function() {
+            $('html').one('click',function() {
+              $(".custom-select").removeClass("opened");
+            });
+            $(this).parents(".custom-select").toggleClass("opened");
+            event.stopPropagation();
+          });
+          $(".custom-option").on("click", function() {
+            $(this).parents(".custom-select-wrapper").find("select").val($(this).data("value"));
+            $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
+            $(this).addClass("selection");
+            $(this).parents(".custom-select").removeClass("opened");
+            $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
+          });
+    </script>
+</body>
+</html>

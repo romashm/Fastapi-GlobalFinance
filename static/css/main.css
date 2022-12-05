@@ -1,0 +1,270 @@
+/* Imports fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+.Montserrat {font-family: 'Montserrat', sans-serif;}
+
+/* Imports fonts */
+/* Navigation bar */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../images/blob-scene-haikei.jpeg') no-repeat ;
+    background-size: cover;
+    height: 100%;
+}
+
+.Platform {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding-top: 2%;
+    justify-content: space-around;
+}
+
+.Border {
+    background-color: #fbfbfb;
+    width: auto;
+    height: auto;   
+    padding-left: 3%; 
+    padding-right: 3%;  
+
+}
+
+.GlobalFinance {
+    font-size: 42px;
+    margin-bottom: 0;
+}
+
+.manage {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 10%;
+}
+
+.LocalTime {
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+
+.userAccountSite {
+    display: flex;
+    padding-left: 10%;
+}
+
+.turnoff {
+    display: flex;
+    padding-left: 10%;
+    background: url('../images/turnoff.svg') no-repeat ;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Navigation bar */
+/* Index file */
+
+.flexbox-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+
+    padding-top: 13%;
+}
+
+.Enterence {
+    font-size: 26px;
+    background-color: #fbfbfb;
+    padding-left: 1%;
+    padding-right: 1%;
+
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bold {
+    font-weight: bolder;
+}
+
+.form-floating {
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Redirection {
+    padding-top: 1%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Redirect {
+    width: 25%;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+/* Index file */
+/* Sign-up file */
+
+.flexbox-center-signup {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+
+    padding-top: 5%;
+}
+
+.input-in-signup {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.two-objects {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.Redirect-signup {
+    width: 40%;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.content-end {
+    padding-top: 2.5%;
+}
+
+/* Sign-up file */
+/* Home file */
+
+.MainTarget {
+    padding-top: 3%;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Poiret {font-family: 'Poiret One';}
+
+.card-body {
+    height: 580px;
+}
+
+.nav-link {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.item-1 {
+    width: 10%;
+    height: auto;
+}
+
+.item-2 {
+    width: 15%;
+    height: auto;
+}
+
+.obj-center {
+    padding-top: 3%;
+    width: 100%;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+}
+
+.lower {
+    width: 4vw;
+    height: auto;
+}
+
+.obj-center-end {
+    padding-top: 3%;
+    width: 95%;
+    text-align: center;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+}
+
+.table, .th, .td {
+    border: 1px solid black;
+}
+
+
+.obj-table {
+    padding-top: .5%;
+    width: 100%;
+    justify-content: center;
+    align-items: baseline;
+    display: flex;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 20%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background: url('../images/blob-scene-haikei.jpeg') no-repeat;
+    background-size: cover;
+    margin: auto;
+    padding: 20px;
+    width: 50px;
+    height: 40%;
+}
+
+.text1 {
+    font-size: 28px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.Redirection-Home {
+    padding-top: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Home file */

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Finance</title>
+    <link href="{{ url_for('static', path='/css/main.css') }}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <nav class="Platform">
+            <div class="Border">
+            <p class="GlobalFinance Montserrat"> Global Finance inc. </p>
+            </div>
+            <div class="manage">
+            <div class="Border">
+                <p class="LocalTime Montserrat"> {{timestamp}} MSC </p></div>
+                <img class="userAccountSite" src="{{ url_for('static', path='/images/account_icon.svg') }}" />
+            </div>
+        </nav>
+        <div class="flexbox-center-signup">
+            <p class="Enterence Montserrat">
+                Спасибо, хорошего дня
+            </p>
+
+            <div class="input-in-signup">
+                <div class="content-end">
+                    <form method="GET" action="/">
+                    <button type="submit" class="btn btn-success Montserrat"> Вернуться домой </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
