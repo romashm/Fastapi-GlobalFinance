@@ -74,6 +74,7 @@ pynput==1.7.6
 pyOpenSSL==21.0.0
 pyparsing==3.0.6
 pyperclip==1.8.2
+pypiwin32==223
 PyQRCode==1.2.1
 PyRect==0.1.4
 PyScreeze==0.1.28
@@ -82,7 +83,6 @@ python-dateutil==2.8.2
 pytweening==1.0.4
 pytz==2022.1
 pywhatkit==5.3
-pywin32==304
 regex==2022.10.31
 requests==2.27.1
 selenium==4.1.0
